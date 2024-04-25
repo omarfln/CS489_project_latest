@@ -31,4 +31,5 @@ ER/ UML diagram is in ER folder
 class diagram is under class-diagram folder
 
 Designed, programed and tested by Omar Flayan
-All rghts reserved !
+
+All rights reserved !
