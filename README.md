@@ -1,7 +1,7 @@
 Bank of Fairfield
 
 Problem statement:
-Micro bank system
+
 As a leading financial institution, we recognize the importance of innovation and convenience in banking services. We are looking to develop a micro banking system that not only aligns with our commitment to operational excellence but also enhances our customers' banking experience by providing them with a comprehensive suite of account management tools accessible online.
 
 The envisioned micro banking system will empower our customers with the following functionalities:
