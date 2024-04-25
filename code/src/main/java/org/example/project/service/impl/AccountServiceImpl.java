@@ -54,22 +54,20 @@ public class AccountServiceImpl implements AccountService {
 
     private AccountDTO convertToDTO(Account account) {
         AccountDTO dto = new AccountDTO();
-        dto.setId(account.getId());
         dto.setAccountNumber(account.getAccountNumber());
         dto.setBalance(account.getBalance());
         User user = account.getUser();
-        UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getAddress());
+        UserDTO userDTO = new UserDTO( user.getUsername(), user.getFirstName(), user.getLastName(), user.getAddress());
         dto.setUserDto(userDTO);
         return dto;
     }
 
     private AccountDTO convertToDTOop(Optional<Account> account) {
         AccountDTO dto = new AccountDTO();
-        dto.setId(account.get().getId());
         dto.setAccountNumber(account.get().getAccountNumber());
         dto.setBalance(account.get().getBalance());
         User user = account.get().getUser();
-        UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getAddress());
+        UserDTO userDTO = new UserDTO(user.getUsername(), user.getFirstName(), user.getLastName(), user.getAddress());
         dto.setUserDto(userDTO);
         return dto;
     }

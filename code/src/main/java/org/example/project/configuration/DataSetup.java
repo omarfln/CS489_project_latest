@@ -50,7 +50,7 @@ public class DataSetup {
             Set<Role> rolesForUser1 = new HashSet<>();
             rolesForUser1.add(role1);
             Set<Role> rolesForUser2 = new HashSet<>();
-            rolesForUser1.add(role2);
+            rolesForUser2.add(role2);
 
             User user1 = new User();
             user1.setUsername("john_doe");

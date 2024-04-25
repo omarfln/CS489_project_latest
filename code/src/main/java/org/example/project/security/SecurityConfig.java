@@ -95,18 +95,20 @@ public class SecurityConfig
                             // Set specific rules for account management
                             request.requestMatchers("/mbweb/api/v1/account/list").hasRole("ADMIN");
                             request.requestMatchers("/mbweb/api/v1/account/get/**").hasAnyRole("USER", "ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/account/register").hasRole("ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/account/register/**").hasRole("ADMIN");
                             request.requestMatchers("/mbweb/api/v1/account/update/**").hasRole("ADMIN");
                             request.requestMatchers("/mbweb/api/v1/account/delete/**").hasRole("ADMIN");
                             request.requestMatchers("/mbweb/api/v1/account/withdrew/**").hasAnyRole("USER", "ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/account/deposit/**").hasAnyRole("USER", "ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/account/process_end_of_month/**").hasRole( "ADMIN");
                             request.requestMatchers("/mbweb/api/v1/address/**").hasRole("ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/user/register").hasAnyRole("USER","ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/user/delete/").hasRole("ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/user/list").hasRole("ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/user/get/").hasRole("ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/user/search/").hasRole("ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/user/update/").hasRole("ADMIN");
-                            request.requestMatchers("/mbweb/api/v1/transaction/").hasRole("ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/user/register/**").hasAnyRole("USER","ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/user/delete/**").hasAnyRole("USER","ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/user/list/**").hasRole("ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/user/get/**").hasAnyRole("USER", "ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/user/search/**").hasRole("ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/user/update/**").hasRole("ADMIN");
+                            request.requestMatchers("/mbweb/api/v1/transaction/**").hasRole("ADMIN");
                         }
                 );
 

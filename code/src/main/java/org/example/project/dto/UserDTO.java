@@ -9,7 +9,6 @@ import org.example.project.model.Address;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
-    private  Long id;
     private  String username;
     private  String firstName;
     private  String lastName;

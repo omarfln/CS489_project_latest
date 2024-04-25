@@ -1,6 +1,9 @@
 package org.example.project.service.impl;
 
+import org.example.project.dto.AccountDTO;
 import org.example.project.dto.TransactionDTO;
+import org.example.project.dto.UserDTO;
+import org.example.project.model.Account;
 import org.example.project.model.Transaction;
 import org.example.project.repository.TransactionRepository;
 import org.example.project.service.TransactionService;
@@ -28,21 +31,40 @@ public class TransactionServiceImpl implements TransactionService {
 
     private TransactionDTO convertToDTO(Transaction transaction) {
         TransactionDTO dto = new TransactionDTO();
-        dto.setId(transaction.getId());
         dto.setDate(transaction.getDate());
         dto.setType(transaction.getType());
         dto.setAmount(transaction.getAmount());
-        dto.setAccount(transaction.getAccount());
+        AccountDTO accountDTO = new AccountDTO();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setAddress(transaction.getAccount().getUser().getAddress());
+        userDTO.setUsername(transaction.getAccount().getUser().getUsername());
+        userDTO.setFirstName(transaction.getAccount().getUser().getFirstName());
+        userDTO.setLastName(transaction.getAccount().getUser().getLastName());
+        userDTO.setAddress(transaction.getAccount().getUser().getAddress());
+        accountDTO.setUserDto(userDTO);
+        accountDTO.setAccountNumber(transaction.getAccount().getAccountNumber());
+        accountDTO.setBalance(transaction.getAccount().getBalance());
+        dto.setAccount(accountDTO);
         return dto;
     }
 
     private TransactionDTO convertToDTOop(Optional<Transaction> transaction) {
         TransactionDTO dto = new TransactionDTO();
-        dto.setId(transaction.get().getId());
         dto.setDate(transaction.get().getDate());
         dto.setType(transaction.get().getType());
         dto.setAmount(transaction.get().getAmount());
-        dto.setAccount(transaction.get().getAccount());
+
+        AccountDTO accountDTO = new AccountDTO();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setAddress(transaction.get().getAccount().getUser().getAddress());
+        userDTO.setUsername(transaction.get().getAccount().getUser().getUsername());
+        userDTO.setFirstName(transaction.get().getAccount().getUser().getFirstName());
+        userDTO.setLastName(transaction.get().getAccount().getUser().getLastName());
+        userDTO.setAddress(transaction.get().getAccount().getUser().getAddress());
+        accountDTO.setUserDto(userDTO);
+        accountDTO.setAccountNumber(transaction.get().getAccount().getAccountNumber());
+        accountDTO.setBalance(transaction.get().getAccount().getBalance());
+        dto.setAccount(accountDTO);
         return dto;
     }
 

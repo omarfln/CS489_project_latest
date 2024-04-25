@@ -1,5 +1,4 @@
 package org.example.project.controller;
-import org.apache.catalina.authenticator.SavedRequest;
 import org.example.project.dto.AccountDTO;
 import org.example.project.model.Account;
 import org.example.project.model.CheckingAccount;
@@ -52,7 +51,7 @@ public class AccountController {
         return ResponseEntity.ok(accountService.makeWithdrawal(id, amount));
     }
 
-    @PutMapping("/deposite/{id}/{amount}")
+    @PutMapping("/deposit/{id}/{amount}")
     public ResponseEntity<AccountDTO> depositMoney(@PathVariable Long id, @PathVariable BigDecimal amount) {
         return ResponseEntity.ok(accountService.makeDeposit(id, amount));
     }
@@ -62,6 +61,14 @@ public class AccountController {
         accountService.deleteAccountById(id);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/process_end_of_month")
+    public ResponseEntity<Void> processEndOfMonth() {
+        accountService.processEndOfMonth();
+        return ResponseEntity.ok().build();
+
+    }
+
 }
 
 
