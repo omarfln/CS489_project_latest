@@ -18,10 +18,10 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin -h new -u root -p123456 ping"
-          --health-interval=10s
+          --health-cmd="mysqladmin -h mysql -u root -p123456 ping"
+          --health-interval=20s
           --health-timeout=10s
-          --health-retries=10
+          --health-retries=100
 
     steps:
     - name: Check out repository
