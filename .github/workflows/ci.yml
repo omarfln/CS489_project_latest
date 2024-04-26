@@ -22,7 +22,7 @@ jobs:
         # Your command to run tests here, e.g.:
         mvn test
       env:
-        MYSQL_HOST: localhost
+        MYSQL_HOST: mysql
         MYSQL_PORT: 3306
         MYSQL_USER: root
         MYSQL_PASSWORD: 123456
