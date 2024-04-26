@@ -18,7 +18,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin -h mysql -u root -p123456 ping"
+          --health-cmd="mysqladmin -h 10.0.0.1 -u root -p123456 ping"
           --health-interval=20s
           --health-timeout=10s
           --health-retries=100
@@ -39,7 +39,7 @@ jobs:
     - name: Verify MySQL Service
       run: |
         echo "Checking MySQL connectivity..."
-        until mysql -h mysql -u root -p123456 -e 'SHOW DATABASES'; do
+        until mysql -h 10.0.0.1 -u root -p123456 -e 'SHOW DATABASES'; do
           echo 'Waiting for MySQL...'
           sleep 10
         done
