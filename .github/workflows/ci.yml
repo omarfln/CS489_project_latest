@@ -18,7 +18,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysql -u root -p123456 -e 'SELECT 1'"
+          --health-cmd="mysqladmin -h new -u root -p123456 ping"
           --health-interval=10s
           --health-timeout=10s
           --health-retries=10
@@ -33,24 +33,23 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Print MySQL service logs
+      run: docker logs ${{ job.services.mysql.id }}
+
     - name: Verify MySQL Service
       run: |
         echo "Checking MySQL connectivity..."
-        until mysql -h mysql -u root -p123456 -e 'SHOW DATABASES'; do
+        until mysql -h new -u root -p123456 -e 'SHOW DATABASES'; do
           echo 'Waiting for MySQL...'
           sleep 10
         done
         echo 'MySQL is up and running!'
 
-    - name: Print MySQL logs if the connection fails
-      if: failure()
-      run: docker logs ${{ job.services.mysql.id }}
-
     - name: Build and Test with Maven Wrapper
       run: |
         ./mvnw clean verify
       env:
-        MYSQL_HOST: mysql
+        MYSQL_HOST: new
         MYSQL_PORT: 3306
         MYSQL_USER: root
         MYSQL_PASSWORD: 123456
