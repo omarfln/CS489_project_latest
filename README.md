@@ -50,6 +50,11 @@ Screen shots are in screenshots-form-day1-oncluding-initial-daigrams folder
 ![deposite_account_2](https://github.com/omarfln/CS489_project_latest/assets/135066051/04fec39d-fac0-4a9c-adca-e55aa00a33bf)
 ![get_account_with_id_1](https://github.com/omarfln/CS489_project_latest/assets/135066051/91a0c8aa-015e-46a6-81d5-ff589a314b71)
 
+DB
+![image](https://github.com/omarfln/CS489_project_latest/assets/135066051/a670cca1-773e-4f0f-9f57-e9f4007f12d3)
+![image](https://github.com/omarfln/CS489_project_latest/assets/135066051/353be538-c68c-4c3f-aadf-0d7787d53fe3)
+![image](https://github.com/omarfln/CS489_project_latest/assets/135066051/76430879-f1fb-49a2-ad42-8e5a98eddd7a)
+![image](https://github.com/omarfln/CS489_project_latest/assets/135066051/a0fc7564-71c9-481b-b153-83c0c21dadcd)
 
 
 
