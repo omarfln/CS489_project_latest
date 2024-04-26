@@ -27,6 +27,10 @@ The end goal is a state-of-the-art system that will solidify our standing as a m
 
 Notes:
 Screen shots are in screenshots-form-day1-oncluding-initial-daigrams folder
+![user_get_1_new](https://github.com/omarfln/CS489_project_latest/assets/135066051/0d87c59a-f29a-4905-a368-01e78d959597)
+
+
+
 ER/ UML diagram is in ER folder
 class diagram is under class-diagram folder
 
