@@ -36,13 +36,10 @@ jobs:
           ${{ runner.os }}-buildx-
 
     - name: Build and start services
-      run: |
-        docker-compose up -d
+      run: docker-compose up -d
 
     - name: Run tests
-      run: |
-        docker-compose exec app mvn test
+      run: docker-compose exec -T app mvn test
 
     - name: Shutdown Docker Compose
-      run: |
-        docker-compose down
+      run: docker-compose down
