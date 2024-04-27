@@ -19,9 +19,9 @@ jobs:
           - 3306:3306
         options: >-
           --health-cmd="mysqladmin -h 10.0.0.1 -u root -p123456 ping"
-          --health-interval=20s
+          --health-interval=60s
           --health-timeout=10s
-          --health-retries=100
+          --health-retries=7
 
     steps:
     - name: Check out repository
@@ -39,11 +39,18 @@ jobs:
     - name: Verify MySQL Service
       run: |
         echo "Checking MySQL connectivity..."
-        until mysql -h 10.0.0.1 -u root -p123456 -e 'SHOW DATABASES'; do
-          echo 'Waiting for MySQL...'
+        for i in {1..10}; do
+          if mysql -h 10.0.0.1 -u root -p123456 -e 'SHOW DATABASES'; then
+            echo 'MySQL is up and running!'
+            break
+          fi
+          echo "MySQL not yet available. Retrying in 10 seconds..."
           sleep 10
         done
-        echo 'MySQL is up and running!'
+        if [[ $i -eq 10 ]]; then
+          echo "Error: Could not connect to MySQL after 10 retries."
+          exit 1
+        fi
 
     - name: Build and Test with Maven Wrapper
       run: |
