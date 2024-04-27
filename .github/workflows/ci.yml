@@ -34,19 +34,17 @@ jobs:
 
     - name: Print network configuration
       run: |
-        echo "Checking IP configuration..."
-        ip a
-        echo "Checking route configuration..."
-        ip r
+        echo "Listing all hosts..."
+        cat /etc/hosts
 
     - name: Test MySQL Connection Early
       run: |
         echo "Attempting to connect to MySQL..."
-        mysql  -h localhost -u root -p123456 -e "SHOW DATABASES;"
+        mysql -h mysql -u root -p123456 -e "SHOW DATABASES;"
         if [ $? -ne 0 ]; then
           echo "Initial connection failed. Attempting to connect repeatedly..."
           for i in {1..5}; do
-            mysql -h localhost -u root -p123456 -e 'SHOW DATABASES' && break
+            mysql -h mysql -u root -p123456 -e 'SHOW DATABASES' && break
             echo "Retry $i: MySQL not available yet. Retrying in 5 seconds..."
             sleep 5
           done
@@ -56,7 +54,7 @@ jobs:
       run: |
         ./mvnw clean verify
       env:
-        MYSQL_HOST: localhost
+        MYSQL_HOST: mysql
         MYSQL_PORT: 3306
         MYSQL_USER: root
         MYSQL_PASSWORD: 123456
