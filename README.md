@@ -57,6 +57,10 @@ DB
 ![image](https://github.com/omarfln/CS489_project_latest/assets/135066051/a0fc7564-71c9-481b-b153-83c0c21dadcd)
 
 
+GitHub Actions:
+![image](https://github.com/omarfln/CS489_project_latest/assets/135066051/7b411bb1-2e93-41e4-b678-ba7126db05e4)
+
+
 
 
 
