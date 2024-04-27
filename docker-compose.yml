@@ -22,7 +22,7 @@ services:
   test-runner:
     build:
       context: .
-      dockerfile: Dockerfile.test  # Make sure this Dockerfile is set up for running Maven tests
+      dockerfile: Dockerfile.test
     depends_on:
       - app
     environment:
