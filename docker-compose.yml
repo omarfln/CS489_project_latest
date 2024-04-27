@@ -10,6 +10,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: 123456
     ports:
       - "8080:8080"
+
   mysql:
     image: mysql:5.7
     environment:
@@ -17,3 +18,14 @@ services:
       MYSQL_DATABASE: my_project_sch
     ports:
       - "3306:3306"
+
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile.test  # Make sure this Dockerfile is set up for running Maven tests
+    depends_on:
+      - app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/my_project_sch?useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123456
