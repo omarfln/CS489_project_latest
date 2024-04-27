@@ -32,9 +32,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Check DNS resolution for MySQL
-      run: nslookup mysql
-
     - name: Print network configuration
       run: |
         echo "Checking IP configuration..."
@@ -45,7 +42,7 @@ jobs:
     - name: Test MySQL Connection Early
       run: |
         echo "Attempting to connect to MySQL..."
-        mysql -h mysql -u root -p123456 -e "SHOW DATABASES;"
+        mysql  -u root -p123456 -e "SHOW DATABASES;"
         if [ $? -ne 0 ]; then
           echo "Initial connection failed. Attempting to connect repeatedly..."
           for i in {1..5}; do
