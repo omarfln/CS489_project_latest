@@ -33,8 +33,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Print MySQL service logs
-      run: docker logs ${{ job.services.mysql.id }}
+    - name: Check DNS resolution
+      run: nslookup mysql
+
+    - name: Test MySQL Connection Immediately
+      run: |
+        mysql -h mysql -u root -p123456 -e "SHOW DATABASES;"
 
     - name: Verify MySQL Service
       run: |
