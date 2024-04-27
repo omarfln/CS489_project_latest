@@ -39,7 +39,7 @@ jobs:
       run: docker-compose up -d
 
     - name: Run tests
-      run: docker-compose exec -T app mvn test
+      run: docker-compose up --build test-runner
 
     - name: Shutdown Docker Compose
       run: docker-compose down
